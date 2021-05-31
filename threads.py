@@ -22,7 +22,7 @@ class MyQueue(queue.Queue):
 def produce_random_numbers(q: MyQueue, maxcount: int, evnt: threading.Event):
     count = 0
     while not evnt.is_set():
-        num = random.randint(1,5)
+        num = random.randint(1, 5)
         q.set_number(num)
         count += 1
         if count > maxcount:
@@ -50,9 +50,9 @@ if __name__ == "__main__":
     print(f'Generated Numbers: {q.numbers}')
     print(f'Numbers Consumed by Thread1 which summed up to {sum(cons1)} are: {cons1}')
     print(f'Numbers Consumed by Thread2 which summed up to {sum(cons2)} are: {cons2}')
-    if (sum(cons1)>sum(cons2)):
+    if sum(cons1) > sum(cons2):
         print("Thread1 Wins!")
-    elif (sum(cons1)<sum(cons2)):
+    elif sum(cons1) < sum(cons2):
         print("Thread2 Wins!")
     else:
         print("It's a tie!")
